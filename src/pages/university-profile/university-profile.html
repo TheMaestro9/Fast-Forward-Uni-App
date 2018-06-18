@@ -1,0 +1,54 @@
+<ion-header>
+
+  <main-header title='University Profile'></main-header>
+</ion-header>
+
+
+<ion-content class="card-background-page">
+
+  <ion-card>
+    <div class="layer">
+      <img [src]="university.img_url" alt="university image">
+      <!-- <div class="card-title">{{university.name}}</div> -->
+    </div>
+  </ion-card>
+
+  <div class="caption-wrapper">
+    <h3>{{university.name}}</h3>
+    <p>{{university.description}}</p>
+  </div>
+
+  <ion-row *ngFor="let row of rows">
+    <div class="side-title">{{row.title}}:</div>
+    <span class="value">{{row.value}}</span>
+  </ion-row>
+<!-- 
+  <ion-row class="bottom">
+
+    <ion-col col-6 style="padding-left:1rem;float:left; ">
+      <button ion-button round style="display: inline-block; font-size:1.2rem" color="grey" (click)="selectPart(media)">
+        <strong style="padding-right:1rem"> I'm Interested </strong>
+      </button>
+    </ion-col>
+    <ion-col col-6 style="padding-right:1rem;float:right; padding-bottom:1rem">
+      <button ion-button round style="display: inline-block;font-size:1.2rem" color="grey" (click)="viewMore(media)">
+        <strong style="padding-right:1rem"> More Universities </strong>
+      </button>
+    </ion-col>
+
+  </ion-row> -->
+  <ion-row style="padding-top:4rem">
+    <button ion-button round class="moreUniversitiesButton" color="grey" (click)="interest()">
+      <strong style="padding-right:1rem">I'm Interested </strong>
+    </button>
+  </ion-row>
+
+
+  <ion-row>
+    <button ion-button round class="moreUniversitiesButton" color="grey" (click)="moreUniversities()">
+      <strong style="padding-right:1rem"> More Universities </strong>
+    </button>
+  </ion-row>
+
+
+</ion-content>

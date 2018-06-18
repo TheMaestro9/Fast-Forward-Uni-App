@@ -1,0 +1,29 @@
+page-registerform {
+.datetime-text:empty:not(:focus):before{
+    content: "Click to Select" ; 
+    color: #AAAAAA
+}   
+ion-datetime button{ 
+    width:auto !important;
+    height: auto !important;
+}
+ion-label{ 
+    color:#909090; 
+    padding-left: 0.9rem; 
+    margin:0 !important ;
+
+}
+ion-icon{ 
+    padding-left: 20rem ; 
+}
+
+.ion-btn{
+     text-transform: none;
+}
+.buttom{ 
+    padding-top: 27rem ; 
+}
+.top { 
+    padding-top:1rem ;
+}
+}

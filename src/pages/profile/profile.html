@@ -1,0 +1,54 @@
+<ion-header>
+  <main-header title='Profile'></main-header>
+  <button ion-button clear class="edit-icon" (click)="edit()">
+      <ion-icon name="create"></ion-icon>
+  </button>
+</ion-header>
+
+<ion-content class="separated-cards">
+
+  <ion-avatar class="circular-profile" style="background-image: url(http://www.fastforwardsim.com/alpha/male.png)"> </ion-avatar>
+  <br>
+
+  <ion-card padding-top style="background-color:white">
+    <ion-card-content>
+      <span>
+        <ion-icon name='mail'></ion-icon>
+      </span>
+      <a class="description about" href="mailto:{{user_info.user_email}}">
+        <i class="about-title">EMAIL</i>
+        <br>
+        <p class="about-detail">{{user_info.user_email}}</p>
+      </a>
+      <br>
+      <span>
+        <ion-icon name='call'></ion-icon>
+      </span>
+      <a class="description about" href="tel:{{user_info.phone}}">
+        <i class="about-title">MOBILE</i>
+        <br>
+        <p class="about-detail"> {{user_info.phone}}</p>
+      </a>
+      <br>
+
+      <span>
+        <ion-icon name='school'></ion-icon>
+      </span>
+      <a class="description about" href="#">
+        <i class="about-title">SCHOOL</i>
+        <br>
+        <p class="about-detail">{{user_info.school | slice:0:20}}</p>
+      </a>
+      <br>
+
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-card text-center padding-top color="primary" style="padding-top:0rem;" (click)="logout()">
+    <ion-card-content>
+      <strong style="font-size:2rem;">LOG OUT</strong>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

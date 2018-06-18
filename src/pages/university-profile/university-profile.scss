@@ -1,0 +1,60 @@
+page-university-profile {
+    .card-background-page {
+
+        ion-card {
+          position: relative;
+          text-align: center;
+          .layer {
+            background-color: rgba(0, 0, 0, 0.9)
+          }
+          img {
+        //    opacity: 0.5;
+          }
+        }
+      
+        .card-title {
+          position: absolute;
+          top: 36%;
+          font-size: 2.0em;
+          width: 100%;
+          font-weight: bold;
+          color: #fff;
+          text-transform: capitalize
+        }
+      
+        .card-subtitle {
+          font-size: 1.0em;
+          position: absolute;
+          top: 52%;
+          width: 100%;
+          color: #fff;
+        }
+
+        .moreUniversitiesButton{
+          display: inline-block;
+          font-size:1.5rem;
+          width:100%
+        }
+      
+      }
+      .caption-wrapper {
+        padding: 1px 21px;
+        text-align: center;
+        h3 {
+            text-transform: capitalize
+        }
+        p {
+            line-height: 21px;
+        }
+      }
+      .side-title{ 
+        padding-left: 1rem ; 
+        font-weight: bold ; 
+      }
+      .value { 
+        padding-left: 1rem;
+      }
+      .bottom{ 
+        padding-top: 4rem;
+      }
+}

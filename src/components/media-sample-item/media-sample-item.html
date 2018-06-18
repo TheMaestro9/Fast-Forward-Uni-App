@@ -1,0 +1,45 @@
+<ion-card>
+  <div class="img-container">
+    <img [src]="mediaSample.preview_url"/>
+    <img class="play-indicator" 
+      src='../assets/images/play.png' />
+  </div>
+  <!-- 
+  <ion-list>
+    <ion-item>
+      {{ mediaSample.name }}
+    </ion-item>
+  </ion-list>
+--> 
+
+
+
+<!--
+  <ion-row padding>
+    <ion-col col-12 padding style="color:#757575;">{{video.likes}} likes </ion-col>
+    <ion-col col-4>
+      <button ion-button clear small [color]="video.liked?'primary':'grey'" (click)="like(video)" icon-start>
+        <ion-icon name='thumbs-up'></ion-icon>
+        Like
+      </button>
+    </ion-col>
+  -->
+<!--
+  <ion-row>
+    <ion-col center text-center>
+      <ion-note>
+        {{mediaSample | mediaSampleIsLocal}}
+      </ion-note>
+    </ion-col>
+    <ion-col center text-center>
+      <ion-note>
+        {{mediaSample | mediaSampleInputType}}
+      </ion-note>
+    </ion-col>
+    <ion-col center text-center [hidden]="mediaSample.type!='VIDEO'">
+      <ion-note>
+        {{mediaSample | mediaSampleInputFormat}}
+      </ion-note>
+    </ion-col>
+  </ion-row> -->
+</ion-card>

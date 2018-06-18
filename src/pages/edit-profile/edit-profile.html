@@ -1,0 +1,70 @@
+<ion-header color="primary">
+
+  <ion-navbar color="primary">
+    <ion-title style="margin-top:1rem;padding-right:6rem;">Edit Profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+
+
+  <ion-list>
+    <ion-item style="text-align:left;">
+      <button ion-button color="dark" clear ng-disable="true" item-start class="side-label">Full Name</button>
+
+      <ion-input [(ngModel)]="userData.user_name" type="text" placeholder="Full Name"></ion-input>
+    </ion-item>
+    <ion-item style="text-align:left;">
+      <button ion-button color="dark" clear ng-disable="true" item-start class="side-label">Email</button>
+
+      <ion-input [(ngModel)]="userData.user_email" type="email" placeholder="Email"></ion-input>
+
+    </ion-item>
+
+    <ion-item style="text-align:left;">
+      <button ion-button color="dark" clear ng-disable="true" item-start class="side-label">Password</button>
+      <ion-input [(ngModel)]="userData.password" type="userData.password" placeholder="Password"></ion-input>
+    </ion-item>
+
+    <ion-item style="text-align:left;">
+      <button ion-button color="dark" clear ng-disable="true" item-start class="side-label">Phone</button>
+
+      <ion-input [(ngModel)]="userData.phone" type="text" placeholder="Mobile number"></ion-input>
+    </ion-item>
+
+    <ion-item style="text-align:left;">
+      <button ion-button color="dark" clear ng-disable="true" item-start class="side-label">School</button>
+      <ion-input [(ngModel)]="userData.school" type="text" placeholder="School/University"></ion-input>
+    </ion-item>
+
+    <ion-item style="text-align:left;">
+      <button ion-button color="dark" clear ng-disable="true" item-start class="side-label">Degree</button>
+      <ion-select [(ngModel)]="userData.degree" style="  width:100%; max-width: 100% !important; padding-left:6px;" placeholder="Degree">
+        <ion-option value="High School">in High School</ion-option>
+        <ion-option value="College">in College</ion-option>
+        <ion-option value="Graduate">Graduate</ion-option>
+      </ion-select>
+    </ion-item>
+
+
+    <ion-item style="text-align:left;">
+      <button ion-button color="dark" clear ng-disable="true" item-start class="side-label">Major</button>
+      <ion-input [(ngModel)]="userData.major" type="text" placeholder="Major (optional)" #promo></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <button ion-button color="dark" clear ng-disable="true" item-start class="side-label">Birthdate</button>
+      <ion-datetime class="DatePicker" displayFormat="MMMM DD YYYY" max="2007-12-31" [(ngModel)]="userData.birth_date"></ion-datetime>
+
+    </ion-item>
+  </ion-list>
+  <div>
+
+
+    <button ion-button color="primary" round block large (click)="edit()">Done</button>
+  </div>
+
+</ion-content>

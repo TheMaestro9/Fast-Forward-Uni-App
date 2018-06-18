@@ -1,0 +1,42 @@
+<!--
+  Generated template for the AcademicSignupPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>academic-signup</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+
+
+  <ion-label class="top">Degree</ion-label>
+
+  <ion-select [(ngModel)]="userInfo.degree" class="select"  placeholder="Enter your degree...">
+    <ion-option value="High School">in High School</ion-option>
+    <ion-option value="College">in College</ion-option>
+    <ion-option value="Graduate">Graduate</ion-option>
+  </ion-select>
+
+  <ion-label >School/University</ion-label>
+  <ion-input [(ngModel)]="userInfo.school" type="text" placeholder="Enter your school or university..."></ion-input>
+
+
+  <ion-label >Major</ion-label>
+  <ion-input [(ngModel)]="userInfo.major" type="text" placeholder="Enter your major... (optional)" #promo></ion-input>
+
+
+
+  <div class="buttom">
+      <button ion-button color="primary" round block  (click)="done()">
+        Done 
+       </button>
+    </div>
+</ion-content>

@@ -1,0 +1,33 @@
+page-academic-signup {
+
+    .select-md .select-placeholder {
+        color: #C9C9C9;
+    }
+
+    .select { 
+       width:100%; 
+       max-width: 100% !important;
+        padding-left:0.9rem;
+    }
+
+    ion-label{ 
+        color:#909090; 
+        padding-left: 0.9rem; 
+        margin:0 !important ;
+    
+    }
+    ion-icon{ 
+        padding-left: 20rem ; 
+    }
+    
+    .ion-btn{
+         text-transform: none;
+    }
+    .buttom{ 
+        padding-top: 20rem ; 
+    }
+    .top { 
+        padding-top:1rem ;
+    }
+
+}
