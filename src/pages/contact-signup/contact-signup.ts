@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { DataServiceProvider } from '../../providers/data-service/data-service';
 
 /**
  * Generated class for the ContactSignupPage page.
@@ -15,14 +16,14 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 })
 export class ContactSignupPage {
 
-  userInfo ; 
-  constructor(public navCtrl: NavController, public navParams: NavParams , 
-              public alertCtrl:AlertController) {
+  userInfo;
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public alertCtrl: AlertController, public Ds: DataServiceProvider) {
 
-    this.userInfo = navParams.get("userInfo") ; 
-    this.userInfo['user_email'] = "";  
-    this.userInfo['password'] = ""; 
-    this.userInfo['phone']=""
+    this.userInfo = navParams.get("userInfo");
+    this.userInfo['user_email'] = "";
+    this.userInfo['password'] = "";
+    this.userInfo['phone'] = ""
   }
 
 
@@ -37,18 +38,25 @@ export class ContactSignupPage {
   checkData() {
     var email = this.userInfo.user_email;
     var password = this.userInfo.password;
-    var phone = this .userInfo.phone ; 
-    if (email != "" && password != "" && phone!="")
+    var phone = this.userInfo.phone;
+    if (email != "" && password != "" && phone != "")
       return true;
-    else{
-      this.showAlert("please enter your data first") 
+    else {
+      this.showAlert("please enter your data first")
       return false;
     }
   }
 
-  next(){ 
-    if(this.checkData())
-      this.navCtrl.push("AcademicSignupPage" , {userInfo:this.userInfo})
+  next() {
+    if (this.checkData()) {
+      var url = "/user/verify-email?user_email=" + this.userInfo.user_email
+      this.Ds.get(url).subscribe(res => {
+        if (res.validEmail)
+          this.navCtrl.push("AcademicSignupPage", { userInfo: this.userInfo })
+        else 
+          this.showAlert("this email is already used")
+      })
+    }
   }
 
   ionViewDidLoad() {
