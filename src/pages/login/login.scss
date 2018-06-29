@@ -1,5 +1,17 @@
 page-login {
 
+.scroll-content{
+    background: url("../assets/images/background-imageCLEAN.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+}
+
+.button-bottom{
+position: absolute;
+bottom:5%;
+width: 90%;
+}
 .OR {
     overflow: hidden;
     text-align: center;

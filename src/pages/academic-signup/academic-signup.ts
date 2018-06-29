@@ -45,7 +45,7 @@ export class AcademicSignupPage {
     if (major != "" && degree != "" && school != "")
       return true;
     else {
-      this.showAlert("please enter your data first")
+      this.showAlert("Please fill out all the required fields.")
       return false;
     }
   }

@@ -1,15 +1,30 @@
 <ion-menu [content]="content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Menu</ion-title>
-    </ion-toolbar>
+  <ion-header style="background: #F8483C; height:12rem;">
+      <!--<img src="assets/ff.png" class="ff-img"style="text-align:center;width:30%;padding-top:5%;"/> -->
+     
+     <ion-grid style="padding-top:5%;padding-right:3%">
+        <ion-row>
+          <ion-col>
+           <img src="assets/ffwhite.png" style="display: block;vertical-align: middle;;width:70%;"/>
+          </ion-col>
+           <ion-col>
+             <ion-label style="color:white;padding-top:10%;padding-right:10%;font-weight: 500; font-size:2rem;display: block;vertical-align: middle;">{{pages2}}
+
+                 <!--<p style="color:white; font-weight: 300; font-size:1.5rem; ">{{pages3}}</p>-->
+             </ion-label>
+         </ion-col>
+  </ion-row>
+</ion-grid>
+     
   </ion-header>
 
-  <ion-content>
+  <ion-content style="margin:auto;">
     <ion-list no-lines>
-      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
+      <br>
+      <button style="color:#727272; font-weight: lighter; font-size:2.1rem; padding-left:5%; padding-top:2%" menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        <!--<img src="{{p.img}}" style="width:10%;"/>--> {{p.title}}
       </button>
+
     </ion-list>
   </ion-content>
 

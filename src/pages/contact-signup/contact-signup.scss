@@ -1,7 +1,12 @@
 page-contact-signup {
-
+.scroll-content{
+    background: url("../assets/images/background-imageCLEAN.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+}    
     ion-label{ 
-        color:#909090; 
+        color:black; 
         padding-left: 0.9rem; 
         margin:0 !important ;
     

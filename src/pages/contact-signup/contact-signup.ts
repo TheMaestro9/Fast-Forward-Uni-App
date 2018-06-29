@@ -41,7 +41,7 @@ export class ContactSignupPage {
     if (email != "" && password != "" && phone!="")
       return true;
     else{
-      this.showAlert("please enter your data first") 
+      this.showAlert("Please fill out all the required fields.") 
       return false;
     }
   }

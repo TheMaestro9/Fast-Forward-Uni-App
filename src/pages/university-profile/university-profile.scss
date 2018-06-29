@@ -39,12 +39,14 @@ page-university-profile {
       }
       .caption-wrapper {
         padding: 1px 21px;
-        text-align: center;
+        text-align: left;
         h3 {
-            text-transform: capitalize
+            text-transform: capitalize;
+            font-size:1.6rem;
+            font-weight: bold;
         }
         p {
-            line-height: 21px;
+            line-height: 12px;
         }
       }
       .side-title{ 
