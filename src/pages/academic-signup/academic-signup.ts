@@ -42,7 +42,7 @@ export class AcademicSignupPage {
     var major = this.userInfo.major;
     var degree = this.userInfo.degree;
     var school = this.userInfo.school;
-    if (major != "" && degree != "" && school != "")
+    if ( degree != "" && school != "")
       return true;
     else {
       this.showAlert("Please fill out all the required fields.")

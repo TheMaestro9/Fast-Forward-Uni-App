@@ -14,13 +14,23 @@ export class DataServiceProvider {
 
   token: string;
   Ds
-  host="http://ffuniserver.eu-gb.mybluemix.net";
+  host = "http://ffuniserver.eu-gb.mybluemix.net";
   // host = "http://localhost:6001";
   constructor(public http: Http, public storage: Storage,
     public alertController: AlertController) {
 
-    this.getToken() ; 
+    this.getToken();
     console.log('constructor DS')
+  }
+
+  dataAdapter(data) {
+    if (data) {
+      if (typeof (data.phone) != "undefined")
+        data['phone_no'] = data.phone;
+      if (typeof (data.phone_no) != "undefined")
+        data['phone'] = data.phone_no;
+    }
+    return data;
   }
 
   handleResponse(res) {
@@ -29,7 +39,7 @@ export class DataServiceProvider {
     if (!response.success) {
       this.createErrorAlert(res.message)
     }
-    return response.data;
+    return this.dataAdapter(response.data);
   }
 
   getToken() {
@@ -72,6 +82,7 @@ export class DataServiceProvider {
     console.log('sending post Request with url', url)
 
     data['token'] = this.token;
+    data = this.dataAdapter(data);
     return this.http.post(url, data)
       .map(res => { return this.handleResponse(res) });
   }
@@ -79,7 +90,8 @@ export class DataServiceProvider {
   put(url, data) {
     url = this.host + url;
     data['token'] = this.token;
-    console.log("sending put request to url" , url)
+    this.dataAdapter(data);
+    console.log("sending put request to url", url)
     return this.http.put(url, data)
       .map(res => res.json());
   }
