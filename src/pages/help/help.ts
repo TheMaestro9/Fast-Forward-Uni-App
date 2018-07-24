@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 
 /**
@@ -10,8 +9,6 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
  * Ionic pages and navigation.
  */
 
-declare let cordova: any;
-
 @IonicPage()
 @Component({
   selector: 'page-help',
@@ -19,28 +16,28 @@ declare let cordova: any;
 })
 export class HelpPage {
 
-  constructor(private iab: InAppBrowser, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad HelpPage');
   }
 
-Call(){
-cordova.InAppBrowser.open('tel:+20233385131', '_system');
+  Call(){
+window.open("tel:" + '+20233385131');
 }
 
 fb(){
-cordova.InAppBrowser.open('http://www.fb.com/fastforwardsim', '_system');
+window.open('http://www.fb.com/fastforwardsim');
 }
 insta(){
-cordova.InAppBrowser.open('http://www.instagram.com/fastforwardsim', '_system');
+window.open('http://www.instagram.com/fastforwardsim');
 }
 map(){
-cordova.InAppBrowser.open('https://goo.gl/maps/Brq9JPQk1FL2', '_system');
+window.open('https://goo.gl/maps/Brq9JPQk1FL2');
 }
 email(){
-cordova.InAppBrowser.open('mailto:support@fastforwardsim.com', '_system');
+window.open("mailto:" + 'support@fastforwardsim.com');
 }
 
 

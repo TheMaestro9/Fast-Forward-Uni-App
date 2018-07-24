@@ -41,10 +41,13 @@ export class ContactSignupPage {
     var phone = this.userInfo.phone;
     if (email != "" && password != "" && phone != "")
       return true;
-
+<<<<<<< HEAD
     else{
       this.showAlert("Please fill out all the required fields.") 
-
+=======
+    else {
+      this.showAlert("please enter your data first")
+>>>>>>> 7ddba930d0bea98d8805ebfc208aaa8c2b08c29e
       return false;
     }
   }
