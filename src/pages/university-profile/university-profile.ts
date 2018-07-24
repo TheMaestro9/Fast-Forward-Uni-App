@@ -42,10 +42,12 @@ export class UniversityProfilePage {
     console.log("in university page" , this.university)
   }
 
-  showAlert(msg) {
+  showAlert( msg , title?) {
+    if(!title)
+      title = ' '
     let alert = this.alertCtrl.create({
-      title: ' ',
-      subTitle: msg,
+      title: title,
+      message: msg,
       buttons: ['OK']
     });
     alert.present();
@@ -55,6 +57,8 @@ export class UniversityProfilePage {
     this.Ds.post("/universities/user-interest" , {university_id:this.university.university_id}).subscribe(res=>{
       if(res.interestAdded)
         this.showAlert("Someone will call you shortly"); 
+      else 
+        this.showAlert(res.msg , "") 
     })
   }
   moreUniversities(){

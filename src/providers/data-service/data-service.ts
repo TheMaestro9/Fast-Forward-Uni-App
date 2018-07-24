@@ -38,6 +38,7 @@ export class DataServiceProvider {
     console.log("in handle response", response)
     if (!response.success) {
       this.createErrorAlert(res.message)
+      return false ; 
     }
     return this.dataAdapter(response.data);
   }

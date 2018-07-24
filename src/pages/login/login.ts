@@ -16,7 +16,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
   selector: 'page-login',
   templateUrl: 'login.html',
 
-   animations: [
+  animations: [
     trigger('visibilityChanged', [
       state('shown', style({ opacity: 1 })),
       state('hidden', style({ opacity: 0 })),
@@ -27,13 +27,14 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 
 })
 export class LoginPage {
-   public buttonClicked: boolean = true;
-   public buttonClicked2: boolean = false;
-   visibility: string = 'hidden';
-  user_info; 
+  public buttonClicked: boolean = true;
+  public buttonClicked2: boolean = false;
+  visibility: string = 'hidden';
+  user_info;
   dummy = [];
-   dummy2 = [];
+  dummy2 = [];
   check;
+
   splash = true;
   name;
   email;
@@ -42,34 +43,34 @@ export class LoginPage {
   connection_error_popup: any;
 
 
-  constructor(public events2: Events, public events: Events, public navCtrl: NavController, private http: Http, private DS:DataServiceProvider,
-     public alertCtrl: AlertController, private store: Storage, private loadingCtrl: LoadingController) {
-     this.user_info= {
-      user_email: "", 
-      phone_no : "", 
+  constructor(public events2: Events, public events: Events, public navCtrl: NavController, private http: Http, private DS: DataServiceProvider,
+    public alertCtrl: AlertController, private store: Storage, private loadingCtrl: LoadingController) {
+    this.user_info = {
+      user_email: "",
+      phone_no: "",
       school: ""
     }
 
   }
 
 
-getUserInfo() {
-      var url = '/user/user-info'
-      console.log("Hello MAAAAN");
-      
-      this.DS.get(url).subscribe(userInfo=>{
-          this.user_info= userInfo;
-          this.dummy.push((this.user_info).user_name);
-          this.dummy2.push((this.user_info).user_email);
-          this.events.publish("shareObject", this.dummy, 2);
-          this.events2.publish("shareObject2", this.dummy2, 2);
-          console.log(this.dummy2);
-           console.log("Second one:-");
-          console.log(this.dummy);
-      })
+  getUserInfo() {
+    var url = '/user/user-info'
+    console.log("Hello MAAAAN");
+
+    this.DS.get(url).subscribe(userInfo => {
+      this.user_info = userInfo;
+      this.dummy.push((this.user_info).user_name);
+      this.dummy2.push((this.user_info).user_email);
+      this.events.publish("shareObject", this.dummy, 2);
+      this.events2.publish("shareObject2", this.dummy2, 2);
+      console.log(this.dummy2);
+      console.log("Second one:-");
+      console.log(this.dummy);
+    })
 
   }
-  
+
 
 
 
@@ -83,37 +84,38 @@ getUserInfo() {
   }
 
 
-public onButtonClick() {
-        this.visibility = "shown";
-        this.buttonClicked = !this.buttonClicked;
-        this.buttonClicked2 = !this.buttonClicked2;
-       
-       
-    }
+  public onButtonClick() {
+    this.visibility = "shown";
+    this.buttonClicked = !this.buttonClicked;
+    this.buttonClicked2 = !this.buttonClicked2;
 
 
-  nav(userEmail , password) {
+  }
+
+
+  nav(userEmail, password) {
     var data = {
-      user_email: userEmail , 
-      password: password 
+      user_email: userEmail,
+      password: password
     }
-    this.DS.post("/user/login", data).subscribe(res=> { 
-      if(res.successfulLogin){ 
+    this.DS.post("/user/login", data).subscribe(res => {
+      console.log('in login ds', res)
+      if (res.successfulLogin) {
         this.store.set('token', res.token).then(res => {
           this.DS.getToken().then(data => {
             this.navCtrl.setRoot("VrVideoPage")
           });
         })
       }
-      else 
-        this.showAlert() 
-    })    
+      else
+        this.showAlert('Wrong Email Or Password')
+    })
   }
 
-  showAlert() {
+  showAlert(msg) {
     let alert = this.alertCtrl.create({
       title: ' ',
-      subTitle: 'Wrong Email Or Password',
+      message: msg,
       buttons: ['OK']
     });
     alert.present();
@@ -154,8 +156,20 @@ public onButtonClick() {
   //   }).present();
   // }
 
-  forgetpass(us){
-    //To DO 
-  }
+  forgetpass(userEmail) {
+    console.log("man!", userEmail);
 
+    if (userEmail != "") {
+      var url = "/user/verify-email?user_email=" + userEmail;
+      this.DS.get(url).subscribe(res => {
+        if (res.emailExist)
+          this.navCtrl.push("ForgotPasswordPage", { user_email: userEmail });
+        else
+          this.showAlert(res.msg);
+
+      })
+    }
+    else
+      this.showAlert("please enter your email")
+  }
 }

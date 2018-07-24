@@ -30,7 +30,7 @@ export class ContactSignupPage {
   showAlert(msg) {
     let alert = this.alertCtrl.create({
       title: ' ',
-      subTitle: msg,
+      message: msg,
       buttons: ['OK']
     });
     alert.present();
@@ -51,12 +51,12 @@ export class ContactSignupPage {
 
   next() {
     if (this.checkData()) {
-      var url = "/user/verify-email?user_email=" + this.userInfo.user_email
-      this.Ds.get(url).subscribe(res => {
-        if (res.validEmail)
+      var url = "/user/verify-contact" 
+      this.Ds.post(url , this.userInfo).subscribe(res => {
+        if (res.validContact)
           this.navCtrl.push("AcademicSignupPage", { userInfo: this.userInfo })
         else 
-          this.showAlert("this email is already used")
+          this.showAlert(res.msg)
       })
     }
   }
