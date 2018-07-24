@@ -26,18 +26,18 @@ export class UniversityProfilePage {
     //   name:"GUC", 
     //   description:"this is the university description", 
     //   img_url: "https://i.ytimg.com/vi/RofboY-hQyI/maxresdefault.jpg", 
-   //    price_range: "100$-200$" , 
-     //  grades:"B+" , 
-      // location: "tagamo3 el 5ames"
+    //   price_range: "100$-200$" , 
+    //   grades:"B+" , 
+    //   location: "tagamo3 el 5ames"
     // }
     
 
     this.rows = [
       {title:"Price Range" , value:this.university.price_range},
-      {title:"Majors" , value:this.university.majors},
-      {title:"Location" , value:this.university.location}, 
+      {title:"Required Grade" , value:this.university.grades},
+      {title:"Location " , value:this.university.location}, 
       {title:"Accommodation Fees" , value:this.university.accommodation_fees}, 
-      {title:"Requirements" , value:this.university.grades}
+      {title:"Majors" , value:this.university.majors}
     ]
     console.log("in university page" , this.university)
   }
@@ -53,7 +53,7 @@ export class UniversityProfilePage {
   interest() {
     this.Ds.post("/universities/user-interest" , {university_id:this.university.university_id}).subscribe(res=>{
       if(res.interestAdded)
-        this.showAlert("Someone will call you shortly"); 
+        this.showAlert("Your Interest was submitted successfully"); 
     })
   }
   moreUniversities(){

@@ -12,10 +12,10 @@ import { Component , Input } from '@angular/core';
 })
 export class HeaderComponent {
 
- 
+  toolBarColor; 
   @Input('title') pageTitle ; 
   constructor() {
-    
+    this.toolBarColor='primary'
   }
 
 }

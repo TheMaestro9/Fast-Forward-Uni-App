@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, Alert } from 'ionic-angular';
 import { DataServiceProvider } from '../../providers/data-service/data-service';
 import { VrViewProvider } from '../../providers/vr-view/vr-view';
-import { urlToNavGroupStrings } from 'ionic-angular/navigation/url-serializer';
-import { Events } from 'ionic-angular';
 
 /**
  * Generated class for the VrVideoPage page.
@@ -18,41 +16,18 @@ import { Events } from 'ionic-angular';
   templateUrl: 'vr-video.html',
 })
 export class VrVideoPage {
-user_info; 
-  dummy = [];
   mediaSamples
   highQuality
-  constructor(public events: Events, public navCtrl: NavController, public navParams: NavParams,
-    public DS: DataServiceProvider, public alertController: AlertController,
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public Ds: DataServiceProvider, public alertController: AlertController,
     public vrView: VrViewProvider,
   ) {
     this.highQuality = true;
     this.getVrVideos();
-    this.user_info= {
-      user_email: "", 
-      phone_no : "", 
-      school: ""
-    }
-    this.getUserInfo(); 
   }
-
-
-  getUserInfo() {
-      var url = '/user/user-info'
-      console.log("Hello MAAAAN");
-      
-      this.DS.get(url).subscribe(userInfo=>{
-          this.user_info= userInfo   ; 
-          this.dummy.push((this.user_info).user_name);
-          console.log(this.dummy);
-          this.events.publish("shareObject", this.dummy, 2);
-      })
-
-  }
-
 
   getVrVideos() {
-    this.DS.get("/vr-videos/all-videos").subscribe(res => {
+    this.Ds.get("/vr-videos/all-videos").subscribe(res => {
       console.log('in vr-video.ts', res)
       this.mediaSamples = res
     })
@@ -132,7 +107,7 @@ user_info;
 
   viewMore(video){
     var url = "/universities/university-details?university_id="+video.university_id 
-    this.DS.get(url).subscribe(university =>{ 
+    this.Ds.get(url).subscribe(university =>{ 
       this.navCtrl.push("UniversityProfilePage" , {university:university})
     })
   }

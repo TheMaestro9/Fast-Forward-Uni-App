@@ -6,33 +6,13 @@ import { Registerform } from '../registerform/registerform';
 //import { Facebook } from '@ionic-native/facebook';
 import { Storage } from '@ionic/storage';
 import { DataServiceProvider } from '../../providers/data-service/data-service';
-import { Events } from 'ionic-angular';
-
-import { trigger, state, style, animate, transition } from '@angular/animations';
-
 
 @IonicPage()
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
-
-   animations: [
-    trigger('visibilityChanged', [
-      state('shown', style({ opacity: 1 })),
-      state('hidden', style({ opacity: 0 })),
-      transition('* => *', animate('700ms'))
-    ])
-  ]
-
-
 })
 export class LoginPage {
-   public buttonClicked: boolean = true;
-   public buttonClicked2: boolean = false;
-   visibility: string = 'hidden';
-  user_info; 
-  dummy = [];
-   dummy2 = [];
   check;
   splash = true;
   name;
@@ -42,35 +22,10 @@ export class LoginPage {
   connection_error_popup: any;
 
 
-  constructor(public events2: Events, public events: Events, public navCtrl: NavController, private http: Http, private DS:DataServiceProvider,
+  constructor(public navCtrl: NavController, private http: Http, private DS:DataServiceProvider,
      public alertCtrl: AlertController, private store: Storage, private loadingCtrl: LoadingController) {
-     this.user_info= {
-      user_email: "", 
-      phone_no : "", 
-      school: ""
-    }
 
   }
-
-
-getUserInfo() {
-      var url = '/user/user-info'
-      console.log("Hello MAAAAN");
-      
-      this.DS.get(url).subscribe(userInfo=>{
-          this.user_info= userInfo;
-          this.dummy.push((this.user_info).user_name);
-          this.dummy2.push((this.user_info).user_email);
-          this.events.publish("shareObject", this.dummy, 2);
-          this.events2.publish("shareObject2", this.dummy2, 2);
-          console.log(this.dummy2);
-           console.log("Second one:-");
-          console.log(this.dummy);
-      })
-
-  }
-  
-
 
 
   //new 
@@ -82,14 +37,6 @@ getUserInfo() {
     }, 4000);
   }
 
-
-public onButtonClick() {
-        this.visibility = "shown";
-        this.buttonClicked = !this.buttonClicked;
-        this.buttonClicked2 = !this.buttonClicked2;
-       
-       
-    }
 
 
   nav(userEmail , password) {

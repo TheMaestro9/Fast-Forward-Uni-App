@@ -1,11 +1,4 @@
 page-registerform {
-.scroll-content{
-    background: url("../assets/images/background-imageCLEAN.jpg") no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-}
-
 .datetime-text:empty:not(:focus):before{
     content: "Click to Select" ; 
     color: #AAAAAA
@@ -15,7 +8,7 @@ ion-datetime button{
     height: auto !important;
 }
 ion-label{ 
-    color:black; 
+    color:#909090; 
     padding-left: 0.9rem; 
     margin:0 !important ;
 

@@ -6,9 +6,8 @@
 -->
 <ion-header>
 
-  <ion-navbar color="primary">
-    <ion-title style="padding-right:4rem;" >Academic Information
-    </ion-title>
+  <ion-navbar>
+    <ion-title>academic-signup</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -20,23 +19,23 @@
 
   <ion-label class="top">Degree</ion-label>
 
-  <ion-select style="padding-left:1rem;" [(ngModel)]="userInfo.degree" class="select"  placeholder="Enter your degree...">
+  <ion-select [(ngModel)]="userInfo.degree" class="select"  placeholder="Enter your degree...">
     <ion-option value="High School">in High School</ion-option>
     <ion-option value="College">in College</ion-option>
     <ion-option value="Graduate">Graduate</ion-option>
   </ion-select>
 
   <ion-label >School/University</ion-label>
-  <ion-input style="padding-left:1rem;" [(ngModel)]="userInfo.school" type="text" placeholder="Enter your school or university..."></ion-input>
+  <ion-input [(ngModel)]="userInfo.school" type="text" placeholder="Enter your school or university..."></ion-input>
 
 
   <ion-label >Major</ion-label>
-  <ion-input style="padding-left:1rem;" [(ngModel)]="userInfo.major" type="text" placeholder="Enter your major..." #promo></ion-input>
+  <ion-input [(ngModel)]="userInfo.major" type="text" placeholder="Enter your major... (optional)" #promo></ion-input>
 
 
 
   <div class="buttom">
-      <button ion-button color="primary"  style="width:100%;height:5rem;"(click)="done()">
+      <button ion-button color="primary" round block  (click)="done()">
         Done 
        </button>
     </div>

@@ -3,7 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage'
 import { DataServiceProvider } from '../../providers/data-service/data-service';
 import { urlToNavGroupStrings } from 'ionic-angular/navigation/url-serializer';
-import { Events } from 'ionic-angular';
 
 /**
  * Generated class for the ProfilePage page.
@@ -18,36 +17,25 @@ import { Events } from 'ionic-angular';
   templateUrl: 'profile.html',
 })
 export class ProfilePage {
-  temporary;
+
   user_info; 
-  dummy = [];
-  constructor(public events: Events, public navCtrl: NavController, public navParams: NavParams,
-    private store: Storage , public DS :DataServiceProvider, public DS2 :DataServiceProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    private store: Storage , public DS :DataServiceProvider) {
 
     this.user_info= {
       user_email: "", 
       phone_no : "", 
       school: ""
     }
-    
     this.getUserInfo(); 
-
   }
-
   getUserInfo() {
       var url = '/user/user-info'
-      console.log("Hello MAAAAN");
-      
-      this.DS2.get(url).subscribe(userInfo=>{
+      this.DS.get(url).subscribe(userInfo=>{
           this.user_info= userInfo   ; 
-          this.dummy.push((this.user_info).user_name);
-          
-          this.events.publish("shareObject", this.dummy, 2);
       })
-
   }
   
-
 	logout() {
     this.store.set('token', "");
     this.store.set('admin', false) ;

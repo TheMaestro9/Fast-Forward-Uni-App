@@ -8,7 +8,7 @@
 
 
   <ion-navbar color="primary">
-    <ion-title style="padding-right:4rem;">Account Information</ion-title>
+    <ion-title style="margin-top:1rem;padding-right:6rem;">Edit Profile</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -17,17 +17,17 @@
 <ion-content padding>
 
       <ion-label class="top">Email</ion-label>
-      <ion-input style="padding-left:1rem;" [(ngModel)]="userInfo.user_email" type="email" placeholder="Enter your email here..."></ion-input>
+      <ion-input [(ngModel)]="userInfo.user_email" type="email" placeholder="enter your email here..."></ion-input>
   
       <ion-label>Password</ion-label>
-      <ion-input style="padding-left:1rem;" [(ngModel)]="userInfo.password" type="userData.password" placeholder="Enter your password here..."></ion-input>
+      <ion-input [(ngModel)]="userInfo.password" type="userData.password" placeholder="enter your password here..."></ion-input>
     
-      <ion-label>Mobile Number</ion-label>
-      <ion-input style="padding-left:1rem;" [(ngModel)]="userInfo.phone" type="text" placeholder="Enter your phone number here..."></ion-input>
+      <ion-label>Phone Number</ion-label>
+      <ion-input [(ngModel)]="userInfo.phone" type="text" placeholder="enter your phone number here..."></ion-input>
     
 
       <div class="buttom">
-          <button ion-button color="primary"  style="width:100%;height:5rem;"(click)="next()">
+          <button ion-button color="primary" round block  (click)="next()">
             Next 
             <ion-icon name="arrow-forward"></ion-icon>
            </button>
