@@ -33,7 +33,7 @@ export class UniversityProfilePage {
     
 
     this.rows = [
-      {title:"Price Range" , value:this.university.price_range},
+      {title:"Annual Price Range" , value:this.university.price_range},
       {title:"Majors" , value:this.university.majors},
       {title:"Location" , value:this.university.location}, 
       {title:"Accommodation Fees" , value:this.university.accommodation_fees}, 
@@ -51,6 +51,7 @@ export class UniversityProfilePage {
     alert.present();
   }
   interest() {
+  
     this.Ds.post("/universities/user-interest" , {university_id:this.university.university_id}).subscribe(res=>{
       if(res.interestAdded)
         this.showAlert("Someone will call you shortly"); 
