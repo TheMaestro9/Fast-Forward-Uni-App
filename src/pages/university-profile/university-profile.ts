@@ -33,9 +33,15 @@ export class UniversityProfilePage {
     
 
     this.rows = [
+<<<<<<< HEAD
       {title:"Price Range" , value:this.university.price_range},
       {title:"Required Grade" , value:this.university.grades},
       {title:"Location " , value:this.university.location}, 
+=======
+      {title:"Annual Price Range" , value:this.university.price_range},
+      {title:"Majors" , value:this.university.majors},
+      {title:"Location" , value:this.university.location}, 
+>>>>>>> parent of dc5f848... Revert "Anany's Latest Changes before upload"
       {title:"Accommodation Fees" , value:this.university.accommodation_fees}, 
       {title:"Majors" , value:this.university.majors}
     ]
@@ -51,6 +57,7 @@ export class UniversityProfilePage {
     alert.present();
   }
   interest() {
+  
     this.Ds.post("/universities/user-interest" , {university_id:this.university.university_id}).subscribe(res=>{
       if(res.interestAdded)
         this.showAlert("Your Interest was submitted successfully"); 
