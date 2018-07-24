@@ -115,7 +115,7 @@ export class Registerform {
     if (userName != "" && birthDate != "")
       return true;
     else{
-      this.showAlert("please enter your data first") 
+      this.showAlert("Please fill out all the required fields.") 
       return false;
     }
   }

@@ -1,0 +1,46 @@
+<ion-header>
+
+  <main-header title='University Profile'></main-header>
+</ion-header>
+
+<ion-content style="background: #eff0f1;color:#F84838;display:inline-block;font-weight:bold;font-size:1.4rem" class="separated-cards">
+
+  <ion-avatar class="circular-profile" style="background-image: url(http://www.fastforwardsim.com/alpha/male.png)"> </ion-avatar>
+  <br>
+
+  <ion-card (click)="email()">
+    <ion-card-content style="color:#727272; font-weight: 10; font-size:2.1rem;">
+     Send us an email
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card (click)="Call()">
+    <ion-card-content style="color:#727272; font-weight: 10; font-size:2.1rem; ">
+    	 Call us 
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card (click)="map()">
+    <ion-card-content style="color:#727272; font-weight: 10; font-size:2.1rem;">
+    Pay us a visit
+    </ion-card-content>
+  </ion-card>
+
+   <ion-card (click)="fb()">
+    <ion-card-content style="background:white; color:#727272; font-weight: 10; font-size:2.1rem;">
+    Find us on <b style="color:#3B5998">Facebook</b>
+    </ion-card-content>
+  </ion-card>
+
+
+
+   <ion-card (click)="insta()">
+    <ion-card-content style=" background: white; color:#727272; font-weight: 10; font-size:2.1rem;">
+    Find us on <b style="color:#cd486b">Instagram</b>
+    </ion-card-content>
+  </ion-card>
+  	
+
+
+
+</ion-content>
