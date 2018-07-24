@@ -41,15 +41,8 @@ export class ContactSignupPage {
     var phone = this.userInfo.phone;
     if (email != "" && password != "" && phone != "")
       return true;
-<<<<<<< HEAD
     else {
       this.showAlert("please enter your data first")
-=======
-
-    else{
-      this.showAlert("Please fill out all the required fields.") 
-
->>>>>>> parent of dc5f848... Revert "Anany's Latest Changes before upload"
       return false;
     }
   }

@@ -9,81 +9,26 @@
 </ion-header>
 
 
-<<<<<<< HEAD
 <ion-content>
   <ion-card *ngFor="let university of universities" (click)="openUniversityProfile(university)">
-=======
-
-<ion-content style="background: #eff0f1;">
-
-<!-- It was 85% -->
-	<ion-searchbar float-left style="width:100%;"
-  [(ngModel)]="myInput"
-  [showCancelButton]="shouldShowCancel"
-  (ionInput)="getItems($event)"
-  (ionCancel)="initializeItems($event)">
- 
-</ion-searchbar>
-<!--
-	<div style="padding:auto;">
-	<ion-card style="width:13%; height: 7.2%;align-items: center;text-align:center;">
-	
-	 	
-    <img src="assets/images/filter.png" height="38" /> 
-	 
-	 </ion-card>
-	</div>
-
-
-
-
-<ion-card >
-	 <ion-item>
-  <ion-label>Location</ion-label>
-  <ion-select [(ngModel)]="myInput">
-    <ion-option value="f">Female</ion-option>
-    <ion-option value="m">Male</ion-option>
-  </ion-select>
-</ion-item>
-
-
-<ion-item>
-  <ion-label>Price</ion-label>
-  <ion-select [(ngModel)]="myInput" >
-    <ion-option  (click)="getItems($event)"  *ngFor="let university of universities">{{university.location}}</ion-option>
-    
-  </ion-select>
-</ion-item>
-
-
-</ion-card>
--->
-
-  <ion-card *ngFor="let university of universities " (click)="openUniversityProfile(university)">
-  	<div class="layer">
-      <img [src]="university.img_url" alt="university image">
-       
-    </div>
->>>>>>> parent of dc5f848... Revert "Anany's Latest Changes before upload"
     <ion-grid>
-      <ion-row>
-      	 <ion-col col-7>
-          <div style="font-weight:600;font-size:1.3rem;">{{university.name}}</div>
-      </ion-col>
-      <ion-col class="right" style="text-align:right;font-style:italic;font-size:1.2rem">
-          <div>{{university.location}}</div>
-          <div>{{university.price_range}}</div>
-          </ion-col>
+      <ion-row class="left">
+          <div class="title"> Name: </div>
+          <div>{{university.name}}</div>
       </ion-row>
 
-	
+      <ion-row class="left">
+        <div class="title"> Location: </div>
+        <div>{{university.location}}</div>
+      </ion-row>
+      <ion-row class="left">
+        <div class="title"> Price Range: </div>
+        <div>{{university.price_range}}</div>
+      </ion-row>
 
-
-      
-
-      <ion-row class="left lastRow" >
-        <div style="font-weight:500;font-size:1.2rem;"> Features: </div>
-        <div style="font-style:italic;font-size:1.2rem">{{university.feature}}</div>
+      <ion-row class="left lastRow">
+        <div class="title"> Features: </div>
+        <div>{{university.feature}}</div>
       </ion-row>
     </ion-grid>
   </ion-card>
